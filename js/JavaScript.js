@@ -16,7 +16,7 @@ const productos = [
     serial: "L7430-i7",
     modelo: "i7-1265U / 32GB / 1TB SSD / 14''",
     categoria: "portatil",
-    imagen: "../img/IMAGENES DATA/Dell Latitude 7430.webp",
+    imagen: "../img/IMAGENES DATA/Dell Latitude 7430.jpg",
     codigo: "DL74i7",
     precio: 7299000,
     garantia: "1 años",
@@ -517,33 +517,84 @@ const productos = [
 
 console.log(productos.length);
 
-//REGISTRO
-const formulario = document.getElementById("myForm");
+//paginacion
+let paginaActual = 1;
+let productosPorPagina = 15;
 
-formulario.addEventListener("submit", (evitarReset) => {
-  evitarReset.preventDefault(); //evita reseteo de campos al presionar el boton de registrar
+const mostrarPagina = (pagina) => {
+  const columna1 = document.querySelector(".column_1");
+  
+  //calculo el indice del primer producto que quiero mostrar
+  //(0 al 15)
+  let inicio = (pagina - 1) * productosPorPagina;
+  let fin = pagina * productosPorPagina;
 
-  const nombre = document.getElementById("nombre").value; //ese "nombre" es el ID del input
-  console.log(nombre);
+  for(let i = inicio; i < fin; i++){
+  const producto = productos[i];
 
-  const serial = document.getElementById("serial").value; 
-  console.log(serial);
+  //creo la card
+  const card = document.createElement("div");
+  card.classList.add("card");
 
-  const modelo = document.getElementById("modelo").value; 
-  console.log(modelo);
+  //creo el contenedor para el img
+  const cardImage = document.createElement("div");
+  cardImage.classList.add("card-image");
 
-  const categoria = document.getElementById("categoria").value;
-  console.log(categoria);
+  const img = document.createElement("img");
+  img.src = producto.imagen;
+  //Agrego la imagen registrada a la variable img ()
+  cardImage.appendChild(img);
 
-  const imagen = document.getElementById("imagen").value;
-  console.log(imagen);
+  //creo el titulo de la card
+  const title = document.createElement("p");
+  title.classList.add("card-title"); 
+  title.textContent = producto.nombre;
 
-  const codigo = document.getElementById("codigo").value;
-  console.log(codigo);
+  const body = document.createElement("p");
+  body.classList.add("card-body");
+  body.innerHTML = 
+  //esto es un template literals
+  `<strong>Serial: </strong> ${producto.serial} <br>
+  <strong>Modelo: </strong> ${producto.modelo} <br>
+  <strong>Categoría: </strong> ${producto.categoria} <br>
+  <strong>Código: </strong> ${producto.codigo} <br>
+  <strong>Garantía: </strong> ${producto.garantia}`;
 
-  const precio = document.getElementById("precio").value;
-  console.log(precio);
+  const precioCard = document.createElement("p");
+  precioCard.classList.add("footer_card");
+  precioCard.textContent = producto.precio + " $";
 
-  const garantia = document.getElementById("garantia").value;
-  console.log(garantia);
-});
+  //ahora aqui armo la card
+  //el appendchild me sirve para agregar un nodo dentro de otro nodo
+  card.appendChild(cardImage);
+  card.appendChild(title);
+  card.appendChild(body);
+  card.appendChild(precioCard);
+
+  columna1.appendChild(card);
+  }
+}
+
+mostrarPagina(paginaActual);
+
+//================
+const siguienteBtn = () => {
+  //cuando llegue a la ultima pagina no va a seguir (para eso es la división)
+  if(paginaActual < (productos.length / productosPorPagina)){
+    paginaActual++;
+    const columna1 = document.querySelector(".column_1");
+  columna1.innerHTML = "";
+    mostrarPagina(paginaActual);
+  }
+}
+
+const anteriorBtn = () => {
+  if(paginaActual>1){
+    paginaActual--;
+    const columna1 = document.querySelector(".column_1");
+  columna1.innerHTML = "";
+  mostrarPagina(paginaActual);
+  }
+  
+  
+}
