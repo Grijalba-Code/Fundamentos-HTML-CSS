@@ -35,11 +35,15 @@
         </div>
     
       <div class="container_pages">
-        <button id="anterior" onclick="anteriorBtn()">Anterior</button>
-        <button id="siguiente" onclick="siguienteBtn()">Siguiente</button>
+        <button id="anterior" >Anterior</button>
+        <button id="siguiente">Siguiente</button>
       </div>
     </main>
 
-    <script src="../js/JavaScript.js" type="text/javascript"></script>
+    <!-- cuando uso el type module, el navegador bloquea el uso de módulos "import/export" por razones de seguridad entonces no permite cargar archivos locales desde módulos. Por eso debe abrirse con Live Server -->
+
+    <script type="module" src="../js/productos.js"></script>
+    <!-- el type module me sirve para poder ejecutar el import y el export (union de mis archivos .js)
+     pone el archivo .js privado. Todo lo que declare como las funciones y variables queda privado. No se guarda en window (globalmente) -->
   </body>
 </html>
