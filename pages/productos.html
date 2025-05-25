@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Productos tegnológicos</title>
+    <link rel="stylesheet" href="../css/productos.css" />
+  </head>
+  <body>
+    <header>
+      <nav class="nav-bar">
+        <div class="logo">DG - TEC</div>
+        <ul class="nav-list">
+          <li><a href="../index.html">Inicio</a></li>
+          <li>
+            <a href="./registro.html">Registrar</a>
+          </li>
+          <li>
+            <a href="./indicaciones.html">Indicaciones</a>
+          </li>
+          <li>
+            <a href="">Productos</a>
+          </li>
+          <li><a href="./buscar.html">Buscar</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    
+    <main>
+      <div class="h1">
+        <h1>Productos disponibles</h1>
+      </div>
+        <div class="column_1">
+        </div>
+    
+      <div class="container_pages">
+        <button id="anterior" >Anterior</button>
+        <p id="page"></p>
+        <button id="siguiente">Siguiente</button>
+      </div>
+    </main>
+
+    <!-- cuando uso el type module, el navegador bloquea el uso de módulos "import/export" por razones de seguridad entonces no permite cargar archivos locales desde módulos. Por eso debe abrirse con Live Server -->
+
+    <script type="module" src="../js/productos.js"></script>
+    <!-- el type module me sirve para poder ejecutar el import y el export (union de mis archivos .js)
+     pone el archivo .js privado. Todo lo que declare como las funciones y variables queda privado. No se guarda en window (globalmente) -->
+  </body>
+</html>

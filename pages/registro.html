@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Registro</title>
+    <link rel="stylesheet" href="../css/registro.css" />
+    <script src="./js/JavaScript.js" type="text/javascript"></script>
+  </head>
+  <body>
+    <!-- =================================== -->
+    <!-- =================================== -->
+    <header>
+      <nav class="nav-bar">
+        <div class="logo">DG - TEC</div>
+        <ul class="nav-list">
+          <li><a href="../index.html">Inicio</a></li>
+          <li>
+            <a href="">Registrar</a>
+          </li>
+          <li>
+            <a href="./indicaciones.html">Indicaciones</a>
+          </li>
+          <li>
+            <a href="./productos.html">Productos</a>
+          </li>
+          <li><a href="./buscar.html">Buscar</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <div class="cont-h1p">
+        <h1>Registrar productos</h1>
+        <p>Registra los datos del producto para agregarlo al sistema</p>
+      </div>
+
+      <div class="container">
+        <h2>Datos generales</h2>
+        <form action="" class="formulario-cont" id="myForm">
+          <div class="column-1">
+            <!-- ------------------------------------------ -->
+            <label for="nombre">Nombre del producto</label>
+            <input type="text" id="nombre" required />
+            <!-- ------------------------------------------ -->
+            <label for="serial">Serial (S/N)</label>
+            <input type="text" id="serial" required />
+            <!-- ------------------------------------------ -->
+            <label for="modelo">Modelo</label>
+            <input type="text" id="modelo" required />
+            <!-- ------------------------------------------ -->
+            <label for="categoria">Categoria</label>
+            <select id="categoria">
+              <option value="vacio">------</option>
+              <option value="portatil">Laptop</option>
+              <option value="PCescritorio">PC de escritorio</option>
+              <option value="accesorio">Accesorio</option>
+              <option value="periferico">Periferico</option>
+              <option value="impresora">Impresoras / Escáneres</option>
+            </select>
+          </div>
+          <div class="column-2">
+            <!-- ------------------------------------------ -->
+            <label for="imagen">Imagen del producto</label>
+            <input type="file" id="imagen" />
+            <!-- ------------------------------------------ -->
+            <label for="codigo">Código</label>
+            <input type="text" id="codigo" />
+            <!-- ------------------------------------------ -->
+            <label for="precio">Precio ($)</label>
+            <input type="number" id="precio" />
+            <!-- ------------------------------------------ -->
+            <label for="garantia">Garantía</label>
+            <select id="garantia">
+              <option value="vacio">------</option>
+              <option value="1 mes">1 Mes</option>
+              <option value="3 meses">3 Meses</option>
+              <option value="6 meses">6 Meses</option>
+              <option value="1 año">1 Año</option>
+            </select>
+            <!-- ------------------------------------------ -->
+          </div>
+          <div class="contentBtn">
+            <button class="azul" type="submit">Registrar</button>
+          </div>
+          <div class="contentBtn">
+            <button class="rojo" type="reset">Limpiar campos</button>
+          </div>
+        </form>
+      </div>
+    </main>
+    <script src="../js/registro.js"></script>
+  </body>
+</html>
