@@ -12,15 +12,6 @@
     height: auto;
     width: 100%;
   }
-  
-  /* centro el container */
-  /* main {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-  } */
-  
   h1 {
     font-size: 2.1em;
   }
@@ -92,12 +83,6 @@
     width: 100%;
   }
   
-  /* .myForm {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-  } */
-  
   .nombre {
     padding: 8px;
     border: 1px solid #ccc;
@@ -120,7 +105,6 @@
     width: 200px;
   }
 
-  
   .search-button {
     font-size: 27px;
     font-weight: bold;
@@ -136,7 +120,7 @@
     background-color: #0056b3;
   }
 
-  .column_1 {
+.column_1 {
   display: grid;
   grid-template-columns: repeat(5, 1fr); /* 5 columnas de igual tamaño */
   gap: 20px; /* espacio entre las cards */
@@ -222,7 +206,7 @@ Define cómo debe cambiar un elemento a lo largo del tiempo, desde el inicio (0%
 .cargando {
   text-align: center;
   font-size: 100px;
-  color: rgb(139, 6, 6);
+  color: rgba(251, 252, 255, 0.733);
   font-family: sans-serif;
   font-weight: bold; 
 

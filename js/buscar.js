@@ -24,6 +24,7 @@ let productosMostrar = obtenerProductosCombinados();
 const btnBuscar = document.querySelector("#buscar");
 // const formulario = document.querySelectorAll(".myForm")
 
+
 btnBuscar.addEventListener("click", (event)=>{
     event.preventDefault();
 
@@ -123,13 +124,13 @@ btnBuscar.addEventListener("click", (event)=>{
         cont2.appendChild(p2);
     });
     
-    removeItems();
+    limpiarCampos();
 });
 
 
 function miPromesa(productosE) {
     return new Promise ((resolve, reject)=>{
-        setTimeout(function(){
+        setTimeout(() => {
           if(productosE === true){
               resolve("VISTA EXITOSA");
           } else {
@@ -140,7 +141,7 @@ function miPromesa(productosE) {
 };
 
 
-function removeItems () {
+function limpiarCampos () {
   document.querySelector(".nombre").value = "";
   document.querySelector(".categoria").value = "";
   document.querySelector(".modelo").value = "";

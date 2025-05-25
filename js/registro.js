@@ -27,7 +27,7 @@ formulario.addEventListener("submit", (evitarReset) => {
   const categoria = document.getElementById("categoria").value;
   console.log(categoria);
 
-  const imagen = "../img/IMAGENES DATA/Dell Latitude 7430.jpg";
+  const imagen = "../img/IMAGENES DATA/ASUS Dual RTX 4060 (2).webp";
   console.log(imagen);
 
   const codigo = document.getElementById("codigo").value;
