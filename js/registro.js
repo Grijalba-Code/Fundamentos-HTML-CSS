@@ -7,13 +7,13 @@ const formulario = document.getElementById("myForm");
 formulario.addEventListener("submit", (evitarReset) => {
   evitarReset.preventDefault(); //evita reseteo de campos al presionar el boton de registrar
 
-  const decimal = /^(?=(?:.*\d){2,})(?=.*[a-z])(?=.*[A-Z])(?!.*\s).{8,20}$/;
+  const decimal = /^(?=(?:.*\d){2,})(?=.*[a-z])(?=.*[A-Z])(?!.*\s).{8,}$/; //regex o expresion regular
   //\d: numeros del 0 al 9
   //(?=(?:.*\d){2,}) : minimo 2 numeros
   //[a-z]: una minuscula
   //[A-Z]: una mayuscula
   //\s: sin espacios ()
-  //{8,20}: de 8 a 20 caracteres
+  //{8,20}: de 8 caracteres
 
   const nombre = document.getElementById("nombre").value; //ese "nombre" es el ID del input
   console.log(nombre);
@@ -50,6 +50,8 @@ formulario.addEventListener("submit", (evitarReset) => {
     garantia: garantia
 };
 
+console.log(codigo.match(decimal));
+
 if(codigo.match(decimal)){
   saveInLocalStorage(producto);
     alert("Producto registrado exitosamente ✅");
@@ -63,12 +65,11 @@ if(codigo.match(decimal)){
   } 
 );
 
+// Usamos el nombre productosStorage como una "clave" en el localStorage
 const KEY_LOCAL_STORAGE = "productosStorage";
 
 const saveInLocalStorage = (producto) => {
-    // Usamos el nombre productosStorage como una "clave" en el localStorage
-
-    //el getItem("productosStorage") me busca si ya hay datos guardados en el navegador con la clave "productosStorage"
+    //el getItem(KEY_LOCAL_STORAGE) me busca si ya hay datos guardados en el navegador con la clave "productosStorage"
 
     //el JSON.parse me convierte ese texto que es en formato JSON en un array con objetos dentro.
     //el || "[]" sirve para que en caso tal si no hay nada aún, se use un array vacío por defecto. me evita algun error

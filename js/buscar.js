@@ -24,7 +24,6 @@ let productosMostrar = obtenerProductosCombinados();
 const btnBuscar = document.querySelector("#buscar");
 // const formulario = document.querySelectorAll(".myForm")
 
-
 btnBuscar.addEventListener("click", (event)=>{
     event.preventDefault();
 
@@ -41,20 +40,20 @@ btnBuscar.addEventListener("click", (event)=>{
    
 
     if (valoreEntradaCategoria === "" && valorEntrada === "" && valorEntradaModelo === "") {
-        alert("¡NO DEJES LOS CAMPOS VACIOS");
+        alert("❌ ¡NO DEJES LOS CAMPOS VACIOS ❌");
         return;
     }
 
     //defino un avariable para identificar si encuentra algun producto o no
-    //si lo encuentra, le digo que me incremente este numero
-    //porque al final si veo que productos encontrados sigue siendo igual a cero, entonces me debe aparecer el texto que NO APARECE NADA.
+    //si lo encuentra, se vuelve true
+    //porque al final si veo que productos encontrados sigue siendo igual a false, entonces me debe aparecer el texto que NO APARECE NADA.
     let productosEncontrados = false;
 
     p2.textContent = "CARGANDO ...";
     p2.classList.add("cargando");
     cont2.appendChild(p2);
 
-    // defino esta variable para guardar las cards que se generen
+    // defino esta variable como un array para guardar las cards que se generen
     let cardsGeneradas = [];
 
     for(let i = 0; i < productosMostrar.length; i++){
@@ -96,14 +95,13 @@ btnBuscar.addEventListener("click", (event)=>{
     precioCard.textContent = convertirApeso(producto.precio, 'COP') + " $";
 
         //ahora aqui armo la card
-        //el appendchild me sirve para agregar un nodo dentro de otro nodo
+        //el appendchild me sirve para agregar un nodo dentro de un elemento HTML
         card.appendChild(cardImage);
         card.appendChild(title);
         card.appendChild(body);
         card.appendChild(precioCard);
 
         cardsGeneradas.push(card);
-        
         } 
     };
     
@@ -134,7 +132,7 @@ function miPromesa(productosE) {
           if(productosE === true){
               resolve("VISTA EXITOSA");
           } else {
-            reject("NO SE ENCONTRARON PRODUCTOS");
+            reject("NO SE ENCONTRARON PRODUCTOS ❌");
           };
         }, 2000);
     });
